@@ -1,5 +1,5 @@
 {
-  "name": "Vivizoo Development",
+  "name": "backend Development",
   "build": {
     "dockerfile": "Dockerfile"
   },
