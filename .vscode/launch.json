@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Backend",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "backend.main",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            }
+        },
+        {
+            "name": "Backend (no engine)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "backend.main",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": ["--no-engine"],
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            }
+        }
+    ]
+}
