@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: caddy:2.11.3-builder-alpine
+    image: caddy:2.11.3-alpine
     restart: unless-stopped
     ports:
       - "80:80"
@@ -8,7 +8,7 @@ services:
     volumes:
       - caddy_data:/data
       - caddy_config:/config
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${HOST_WORKSPACE}/caddy/Caddyfile:/etc/caddy/Caddyfile:rw
     networks:
       - internal
 
@@ -17,14 +17,14 @@ services:
     restart: unless-stopped
     volumes:
       - prometheus_data:/prometheus
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ${HOST_WORKSPACE}/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
     networks:
       - internal
 
 volumes:
-  caddy_data:      # ~/.local/share/docker/volumes/backend_caddy_data
-  caddy_config:    # ~/.local/share/docker/volumes/backend_caddy_config
-  prometheus_data: # ~/.local/share/docker/volumes/backend_prometheus_data
+  caddy_data:
+  caddy_config:
+  prometheus_data:
 
 networks:
   internal:
